@@ -5,7 +5,13 @@ import React, { useEffect, useRef, useState } from "react";
 import MenuContainer from "../MenuContainer.tsx";
 import "./styles.css";
 import { StaticImage } from "gatsby-plugin-image";
-type NavOption = "products" | "developers" | "company" | "home";
+type NavOption =
+  | "features"
+  | "pricing"
+  | "affiliate"
+  | "support"
+  | "learn"
+  | "contact";
 
 const HeaderMy = () => {
   const [selectedNavOption, setSelectedNavOption] = useState<NavOption | null>(
@@ -15,10 +21,12 @@ const HeaderMy = () => {
     x: number;
   }>({ x: 0 });
 
-  const products = useRef<HTMLParagraphElement>(null);
-  const developers = useRef<HTMLParagraphElement>(null);
-  const company = useRef<HTMLParagraphElement>(null);
-  const home = useRef<HTMLParagraphElement>(null);
+  const features = useRef<HTMLParagraphElement>(null);
+  const pricing = useRef<HTMLParagraphElement>(null);
+  const affiliate = useRef<HTMLParagraphElement>(null);
+  const support = useRef<HTMLParagraphElement>(null);
+  const learn = useRef<HTMLParagraphElement>(null);
+  const contact = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const resizeHandler = () => {
@@ -38,22 +46,32 @@ const HeaderMy = () => {
     let navOptionScreenPosition: ClientRect;
 
     switch (navItemId) {
-      case "products":
-        if (products === null || products.current === null) return;
-        navOptionScreenPosition = products.current.getBoundingClientRect();
+      case "features":
+        if (features === null || features.current === null) return;
+        navOptionScreenPosition = features.current.getBoundingClientRect();
         break;
-      case "developers":
-        if (developers === null || developers.current === null) return;
-        navOptionScreenPosition = developers.current.getBoundingClientRect();
+      case "pricing":
+        if (pricing === null || pricing.current === null) return;
+        navOptionScreenPosition = pricing.current.getBoundingClientRect();
         break;
-      case "company":
-        if (company === null || company.current === null) return;
-        navOptionScreenPosition = company.current.getBoundingClientRect();
+      case "affiliate":
+        if (affiliate === null || affiliate.current === null) return;
+        navOptionScreenPosition = affiliate.current.getBoundingClientRect();
         break;
 
-      case "home":
-        if (home === null || home.current === null) return;
-        navOptionScreenPosition = home.current.getBoundingClientRect();
+      case "support":
+        if (support === null || support.current === null) return;
+        navOptionScreenPosition = support.current.getBoundingClientRect();
+        break;
+
+      case "learn":
+        if (learn === null || learn.current === null) return;
+        navOptionScreenPosition = learn.current.getBoundingClientRect();
+        break;
+
+      case "contact":
+        if (contact === null || contact.current === null) return;
+        navOptionScreenPosition = contact.current.getBoundingClientRect();
         break;
       default:
         return;
@@ -89,38 +107,54 @@ const HeaderMy = () => {
       <div onMouseLeave={onMouseLeave} className="navigationWrapper">
         <nav className="navigationItems">
           <button
-            onMouseEnter={() => onNavOptionHover("products")}
-            onClick={() => onNavOptionClicked("products")}
-            onFocus={() => onNavOptionHover("products")}
-            onTouchStart={() => onNavOptionClicked("products")}
+            onMouseEnter={() => onNavOptionHover("features")}
+            onClick={() => onNavOptionClicked("features")}
+            onFocus={() => onNavOptionHover("features")}
+            onTouchStart={() => onNavOptionClicked("features")}
           >
-            <p ref={products}>Produtos</p>
+            <p ref={features}>Features</p>
           </button>
 
           <button
-            onMouseEnter={() => onNavOptionHover("developers")}
-            onClick={() => onNavOptionClicked("developers")}
-            onFocus={() => onNavOptionHover("developers")}
-            onTouchStart={() => onNavOptionClicked("developers")}
+            onMouseEnter={() => onNavOptionHover("pricing")}
+            onClick={() => onNavOptionClicked("pricing")}
+            onFocus={() => onNavOptionHover("pricing")}
+            onTouchStart={() => onNavOptionClicked("pricing")}
           >
-            <p ref={developers}>Desenvolvedores</p>
+            <p ref={pricing}>Pricing</p>
           </button>
 
           <button
-            onMouseEnter={() => onNavOptionHover("company")}
-            onClick={() => onNavOptionClicked("company")}
-            onFocus={() => onNavOptionHover("company")}
-            onTouchStart={() => onNavOptionClicked("company")}
+            onMouseEnter={() => onNavOptionHover("affiliate")}
+            onClick={() => onNavOptionClicked("affiliate")}
+            onFocus={() => onNavOptionHover("affiliate")}
+            onTouchStart={() => onNavOptionClicked("affiliate")}
           >
-            <p ref={company}>Empresa</p>
+            <p ref={affiliate}>Affiliate</p>
           </button>
           <button
-            onMouseEnter={() => onNavOptionHover("home")}
-            onClick={() => onNavOptionClicked("home")}
-            onFocus={() => onNavOptionHover("home")}
-            onTouchStart={() => onNavOptionClicked("home")}
+            onMouseEnter={() => onNavOptionHover("support")}
+            onClick={() => onNavOptionClicked("support")}
+            onFocus={() => onNavOptionHover("support")}
+            onTouchStart={() => onNavOptionClicked("support")}
           >
-            <p ref={home}>Home</p>
+            <p ref={support}>Support</p>
+          </button>
+          <button
+            onMouseEnter={() => onNavOptionHover("learn")}
+            onClick={() => onNavOptionClicked("learn")}
+            onFocus={() => onNavOptionHover("learn")}
+            onTouchStart={() => onNavOptionClicked("learn")}
+          >
+            <p ref={learn}>Learn</p>
+          </button>
+          <button
+            onMouseEnter={() => onNavOptionHover("contact")}
+            onClick={() => onNavOptionClicked("contact")}
+            onFocus={() => onNavOptionHover("contact")}
+            onTouchStart={() => onNavOptionClicked("contact")}
+          >
+            <p ref={contact}>Contact Sale</p>
           </button>
         </nav>
         <MenuContainer

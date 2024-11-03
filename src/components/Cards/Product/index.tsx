@@ -16,7 +16,7 @@ const ProductsCard = forwardRef<HTMLElement>((props, productsRef) => (
 						<p>Pagamentos online</p>
 					</div>
 				</li>
-				<li>
+				{/* <li>
 					<div className='description'>
 						<p>Terminal</p>
 						<p>Pagamentos presenciais</p>
@@ -33,7 +33,7 @@ const ProductsCard = forwardRef<HTMLElement>((props, productsRef) => (
 						<p>Billing</p>
 						<p>Assinaturas e faturamento</p>
 					</div>
-				</li>
+				</li> */}
 			</ul>
 
 			<ul className='actions'>

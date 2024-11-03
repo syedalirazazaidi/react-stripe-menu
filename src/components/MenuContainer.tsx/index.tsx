@@ -7,12 +7,21 @@ import CompanyCard from "../Cards/Company";
 import DevelopersCard from "../Cards/Developer";
 import ProductsCard from "../Cards/Product";
 import "./stylemenu.css";
+import LearnCard from "../Cards/Learn";
+import SupportCard from "../Cards/Support";
 // import ProductsCard from '../Cards/Products'
 // import DevelopersCard from '../Cards/Developers'
 // import CompanyCard from '../Cards/Company'
 
 interface MenuContainerProps {
-  selectedNavOption: "products" | "developers" | "company" | "home" | null;
+  selectedNavOption:
+    | "features"
+    | "pricing"
+    | "affiliate"
+    | "support"
+    | "learn"
+    | "contact"
+    | null;
   selectedNavOptionPosition: { x: number };
 }
 
@@ -20,10 +29,12 @@ const MenuContainer = ({
   selectedNavOption,
   selectedNavOptionPosition,
 }: MenuContainerProps) => {
-  const products = useRef<HTMLElement | null>(null);
-  const developers = useRef<HTMLElement>(null);
-  const company = useRef<HTMLElement>(null);
-  const home = useRef<HTMLElement>(null);
+  const features = useRef<HTMLElement | null>(null);
+  const pricing = useRef<HTMLElement>(null);
+  const affiliate = useRef<HTMLElement>(null);
+  const support = useRef<HTMLElement>(null);
+  const learn = useRef<HTMLElement>(null);
+  const contact = useRef<HTMLElement>(null);
 
   const containerWidth = useMotionValue<number | null>(null);
   const containerHeight = useMotionValue<number | null>(null);
@@ -41,25 +52,37 @@ const MenuContainer = ({
     let width: number, height: number;
 
     switch (selectedNavOption) {
-      case "products":
-        if (products === null || products.current === null) return;
-        width = products.current.clientWidth;
-        height = products.current.clientHeight;
+      case "features":
+        if (features === null || features.current === null) return;
+        width = features.current.clientWidth;
+        height = features.current.clientHeight;
         break;
-      case "developers":
-        if (developers === null || developers.current === null) return;
-        width = developers.current.clientWidth;
-        height = developers.current.clientHeight;
+      case "pricing":
+        if (pricing === null || pricing.current === null) return;
+        width = pricing.current.clientWidth;
+        height = pricing.current.clientHeight;
         break;
-      case "company":
-        if (company === null || company.current === null) return;
-        width = company.current.clientWidth;
-        height = company.current.clientHeight;
+      case "affiliate":
+        if (affiliate === null || affiliate.current === null) return;
+        width = affiliate.current.clientWidth;
+        height = affiliate.current.clientHeight;
         break;
-      case "home":
-        if (home === null || home.current === null) return;
-        width = home.current.clientWidth;
-        height = home.current.clientHeight;
+      case "support":
+        if (support === null || support.current === null) return;
+        width = support.current.clientWidth;
+        height = support.current.clientHeight;
+        break;
+
+      case "learn":
+        if (learn === null || learn.current === null) return;
+        width = learn.current.clientWidth;
+        height = learn.current.clientHeight;
+        break;
+
+      case "contact":
+        if (contact === null || contact.current === null) return;
+        width = contact.current.clientWidth;
+        height = contact.current.clientHeight;
         break;
       default:
         return;
@@ -109,32 +132,46 @@ const MenuContainer = ({
 
             <div className="menuContent">
               <AnimatePresence>
-                {selectedNavOption === "products" && (
+                {selectedNavOption === "features" && (
                   <motion.div {...cardProps}>
-                    <ProductsCard ref={products} />
+                    <ProductsCard ref={features} />
                   </motion.div>
                 )}
               </AnimatePresence>
 
               <AnimatePresence>
-                {selectedNavOption === "developers" && (
+                {selectedNavOption === "pricing" && (
                   <motion.div {...cardProps}>
-                    <DevelopersCard ref={developers} />
+                    <DevelopersCard ref={pricing} />
                   </motion.div>
                 )}
               </AnimatePresence>
 
               <AnimatePresence>
-                {selectedNavOption === "company" && (
+                {selectedNavOption === "affiliate" && (
                   <motion.div {...cardProps}>
-                    <CompanyCard ref={company} />
+                    <CompanyCard ref={affiliate} />
                   </motion.div>
                 )}
               </AnimatePresence>
               <AnimatePresence>
-                {selectedNavOption === "home" && (
+                {selectedNavOption === "support" && (
                   <motion.div {...cardProps}>
-                    <CompanyCard ref={company} />
+                    <SupportCard ref={support} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <AnimatePresence>
+                {selectedNavOption === "learn" && (
+                  <motion.div {...cardProps}>
+                    <LearnCard ref={learn} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <AnimatePresence>
+                {selectedNavOption === "contact" && (
+                  <motion.div {...cardProps}>
+                    <CompanyCard ref={contact} />
                   </motion.div>
                 )}
               </AnimatePresence>

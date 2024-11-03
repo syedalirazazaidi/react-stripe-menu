@@ -7,18 +7,18 @@ import React, { forwardRef } from 'react'
 // 	MdCloudCircle
 // } from 'react-icons/md'
 
-import './style.css'
+// import './style.css'
 
-const DevelopersCard = forwardRef<HTMLElement>((props, developersRef) => (
+const LearnCard = forwardRef<HTMLElement>((props, developersRef) => (
 	<section className='card' ref={developersRef}>
 		<div className='mainActionsWrapper'>
 
-			{/* <header className='header'>
+			<header className='header'>
 				<h5> Documentação</h5>
 				<p>Comece a integrar os produtos e ferramentas da Stripe</p>
-			</header> */}
+			</header>
 
-			{/* <div className='mainActions'>
+			<div className='mainActions'>
 				<ul>
 					<li><h5>Comece já</h5></li>
 					<li><p>Checkout pré-integrado</p></li>
@@ -34,7 +34,7 @@ const DevelopersCard = forwardRef<HTMLElement>((props, developersRef) => (
 					<li><p>Enviar pagamentos</p></li>
 					<li><p>Configurar parametros presenciais</p></li>
 				</ul>
-			</div> */}
+			</div>
 		</div>
 
 		<footer className='footer'>
@@ -50,4 +50,4 @@ const DevelopersCard = forwardRef<HTMLElement>((props, developersRef) => (
 	</section>
 ))
 
-export default DevelopersCard
+export default LearnCard
